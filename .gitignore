@@ -1,0 +1,29 @@
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Venv
+venv/
+
+# IDE / editor files
+.vs/
+.vscode/
+.idea/
+
+# C# build outputs
+Frontend/bin/
+Frontend/obj/
+Frontend/.vs/
+
+# Win installer files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# OS files
+Thumbs.db
+
+# Env variables
+.env

@@ -1,0 +1,3 @@
+FastAPI==0.95.2
+Uvicorn==0.21.1
+Pydantic==1.10.7

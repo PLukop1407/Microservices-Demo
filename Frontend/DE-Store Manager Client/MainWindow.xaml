@@ -1,0 +1,49 @@
+﻿<Window x:Class="DE_Store_Manager_Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DE_Store_Manager_Client"
+        mc:Ignorable="d"
+        Title="DE-Store Management System" Height="470" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="15" Margin="131,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76"><Run Language="en-gb" Text="Price Control"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Height="15" Margin="0,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" Grid.Column="1"><Run Language="en-gb" Text="Inventory Control"/></TextBlock>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="15" Margin="788,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Language="en-gb" Text="Reports &amp; Analysis"/></TextBlock>
+        <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,54,0,0" Stroke="Black" Width="300" Height="370" VerticalAlignment="Top"/>
+        <Rectangle HorizontalAlignment="Left" Margin="350,54,0,0" Stroke="Black" Width="300" Grid.Column="1" Height="370" VerticalAlignment="Top"/>
+        <Rectangle Grid.ColumnSpan="2" Margin="688,54,0,0" Stroke="Black" Height="370" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300"/>
+        <Button x:Name="btnUpdate" Content="Update Item" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="204,290,0,0" Width="85" Height="26" VerticalAlignment="Top" Click="updateItem"/>
+        <ListBox x:Name="txtItems" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="24,79,0,227" Width="265" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="txtItems_SelectionChanged"/>
+        <TextBlock x:Name="lblPriceControl" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="15" Margin="110,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76"><Run Language="en-gb" Text="Store Items"/></TextBlock>
+        <TextBox x:Name="txtID" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="66,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsEnabled="False"/>
+        <TextBlock x:Name="lblID" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="18,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-gb" Text="ID"/></TextBlock>
+        <TextBox x:Name="txtName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="66,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" IsEnabled="False"/>
+        <TextBlock x:Name="lblName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="18,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-gb" Text="Name"/></TextBlock>
+        <TextBlock x:Name="lblPrice" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="18,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-gb" Text="P"/><Run Text="rice"/></TextBlock>
+        <TextBox x:Name="txtPrice" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="66,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94"/>
+        <ComboBox x:Name="txtDropdown" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="66,326,0,0" VerticalAlignment="Top" Width="94"/>
+        <TextBlock x:Name="lblSale" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="18,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-gb" Text="Sale"/></TextBlock>
+        <TextBlock x:Name="lblPriceError" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="97,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Hidden"><Run Language="en-gb" Text="Service Unavailable"/></TextBlock>
+        <TextBlock x:Name="lblInventoryControl" HorizontalAlignment="Center" Height="15" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" Grid.Column="1"><Run Language="en-gb" Text="Low Stock Items"/><LineBreak/><Run Language="en-gb"/><LineBreak/><Run/></TextBlock>
+        <ListBox x:Name="txtStock" HorizontalAlignment="Center" Margin="0,79,0,227" Width="264" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="txtItems_SelectionChanged" Grid.Column="1"/>
+        <Button x:Name="btnOrder" Content="Order Low Stock" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top" Width="116" Click="btnOrderStock" Grid.Column="1"/>
+        <Button x:Name="btnExport" Content="Export Order Report" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" Width="148" Click="btnExport_Click" Grid.Column="1"/>
+        <Button x:Name="btnEmail" Content="Email Order Report" HorizontalAlignment="Center" Margin="0,326,0,0" VerticalAlignment="Top" Width="148" Grid.Column="1"/>
+        <TextBlock x:Name="txtNoLow" Grid.ColumnSpan="2" Margin="442,137,0,0" TextWrapping="Wrap" Height="16" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" Visibility="Hidden"><Run Language="en-gb" Text="No low stock items"/></TextBlock>
+        <TextBox x:Name="txtReport" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="707,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264" Height="148"/>
+        <TextBlock x:Name="lblReportSection" HorizontalAlignment="Left" Height="15" Margin="799,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" Grid.Column="1"><Run Language="en-gb" Text="Analysis View"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="btnStore" Content="Generate Store Analysis" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="733,120,0,0" VerticalAlignment="Top" Width="213" Click="btnGenerateStore"/>
+        <Button x:Name="btnCustomer" Content="Generate Customer Analysis" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="733,89,0,0" VerticalAlignment="Top" Width="213" Click="btnGenerateCustomer"/>
+        <Button x:Name="btnExportCustomer" Content="Export Customer Analysis Report" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="733,353,0,0" VerticalAlignment="Top" Width="213" Click="btnExportCustomer_Click"/>
+        <Button x:Name="btnExportStore" Content="Export Store Analysis Report" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="733,382,0,0" VerticalAlignment="Top" Width="213" Click="btnExportStore_Click"/>
+        <TextBlock x:Name="lblReport" HorizontalAlignment="Left" Height="15" Margin="782,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Grid.Column="1"><Run Language="en-gb" Text="Report Management"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="lblStockError" HorizontalAlignment="Center" Margin="0,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Visibility="Hidden"><Run Language="en-gb" Text="Service Unavailable"/></TextBlock>
+
+    </Grid>
+</Window>
